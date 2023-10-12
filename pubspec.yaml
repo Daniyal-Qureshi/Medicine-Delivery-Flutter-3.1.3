@@ -47,6 +47,10 @@ dependencies:
   awesome_dialog:
   google_maps_flutter:
   geolocator:
+  geocoding:
+  permission_handler: 
+  dropdown_button2:
+
 
 dev_dependencies:
   flutter_test:

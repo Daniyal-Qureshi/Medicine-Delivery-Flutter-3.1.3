@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:medicine_delivery/drawer.dart';
-import 'Login.dart';
-import 'cart.dart';
-import 'show_medicine.dart';
+import 'package:medicine_delivery/homepage/drawer.dart';
+import '../authentication/login.dart';
+import '../cart.dart';
+import '../order/show_medicine.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -51,7 +51,8 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (BuildContext context) => ShowMedicine()));
+                                  builder: (BuildContext context) =>
+                                      ShowMedicine()));
                         },
                       ),
                       const Text("Order Medicines"),
@@ -87,13 +88,6 @@ class HomePage extends StatelessWidget {
             ],
           ),
         ),
-        drawer: SideDrawer()
-        
-        
-        )
-
-        
-        
-        ;
+        drawer: SideDrawer());
   }
 }

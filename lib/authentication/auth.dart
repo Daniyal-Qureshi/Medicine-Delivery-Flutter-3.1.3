@@ -7,6 +7,7 @@ class Authentication {
   // ignore: constant_identifier_names
   static const ALREADY_IN_USE = "email-already-in-use";
   static const WEAK_PASSWORD = "weak-password";
+
   static Future<String> registerUser(String email, String password) async {
     try {
       await FirebaseAuth.instance
