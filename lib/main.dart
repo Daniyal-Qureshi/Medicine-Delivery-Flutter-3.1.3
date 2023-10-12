@@ -3,14 +3,18 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'Login.dart';
-import 'homepage.dart';
+import 'package:medicine_delivery/checkout/location.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'authentication/login.dart';
+import 'homepage/homepage.dart';
+
 late bool res;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Permission.location.request();
   await Hive.initFlutter();
-   await Hive.openBox("User");
+  await Hive.openBox("User");
   await Firebase.initializeApp();
 
   runApp(MyApp());
