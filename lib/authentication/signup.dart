@@ -1,6 +1,7 @@
 import 'package:medicine_delivery/authentication/auth.dart';
-import 'package:medicine_delivery/authentication/field.dart';
 import 'package:medicine_delivery/authentication/footer.dart';
+import 'package:medicine_delivery/shared/field.dart';
+import 'package:medicine_delivery/shared/topbar.dart';
 import 'login.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
@@ -60,10 +61,7 @@ class SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Sign up"),
-        backgroundColor: Colors.green,
-      ),
+      appBar: TopBar(title: ""),
       body: Stack(children: [
         SingleChildScrollView(
           child: Column(
@@ -91,6 +89,19 @@ class SignupState extends State<Signup> {
                         )),
                   )),
 
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
               Field(
                 setIsVisible: setIsVisible,
                 labelText: "Email Address",
