@@ -40,11 +40,9 @@ class Location {
 
       final double latitude = jsonDecode(response.body)['lat'];
       final double longitude = jsonDecode(response.body)['lon'];
-      d.log('$latitude, $longitude');
 
       List<Placemark> placemarks =
           await placemarkFromCoordinates(latitude, longitude);
-      d.log(placemarks.toString());
 
       List<String> locationInfoList = [];
 

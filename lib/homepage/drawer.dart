@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:medicine_delivery/authentication/login.dart';
+import 'package:medicine_delivery/order/order_history.dart';
 
 class SideDrawer extends StatelessWidget {
   late String email;
   SideDrawer({Key? key}) : super(key: key) {
-     var user = Hive.box('User');
+    var user = Hive.box('User');
     email = user.get("email") ?? "";
   }
 
-  
   @override
   Widget build(BuildContext context) {
     return Drawer(
         child: Container(
-            color: Colors.white,
+            color: Colors.green,
             child: Column(children: [
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
-                color: Colors.green,
                 child: Center(
                   child: Column(
                     children: [
@@ -36,22 +35,46 @@ class SideDrawer extends StatelessWidget {
                       ),
                       Text(
                         "${email}",
-                        style: const TextStyle(fontSize: 20),
+                        style:
+                            const TextStyle(fontSize: 15, color: Colors.white),
                       ),
                     ],
                   ),
                 ),
               ),
               const ListTile(
-                leading: Icon(Icons.person),
+                leading: Icon(
+                  Icons.person,
+                  color: Colors.white,
+                ),
                 title: Text("Profile"),
               ),
+              ListTile(
+                leading: const Icon(
+                  Icons.shopping_cart_checkout,
+                  color: Colors.white,
+                ),
+                title: const Text("Your Orders"),
+                onTap: () async {
+                  // ignore: use_build_context_synchronously
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => OrderHistory()));
+                },
+              ),
               const ListTile(
-                leading: Icon(Icons.settings),
+                leading: Icon(
+                  Icons.settings,
+                  color: Colors.white,
+                ),
                 title: Text("Settings"),
               ),
               ListTile(
-                leading: const Icon(Icons.logout),
+                leading: const Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                ),
                 title: const Text("Logout"),
                 onTap: () async {
                   // ignore: use_build_context_synchronously

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medicine_delivery/checkout/checkout_footer.dart';
 import 'package:medicine_delivery/checkout/location_dropdown.dart';
+import 'package:medicine_delivery/shared/topbar.dart';
 
 // ignore: must_be_immutable
 class Checkout extends StatefulWidget {
@@ -28,10 +29,7 @@ class _CheckoutState extends State<Checkout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Check out"),
-          backgroundColor: Colors.green,
-        ),
+        appBar: TopBar(title: "Check out"),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20),
